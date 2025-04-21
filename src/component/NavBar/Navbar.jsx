@@ -5,7 +5,6 @@ import "@/component/NavBar/Navbar.css";
 import { Authcontext } from '@/context/auth';
 import { useRouter } from 'next/router';
 const Navbar = () => {
-  const router = useRouter.push()
   const globalData = useContext(Authcontext);
   const isLoggedIn = globalData.isLoggedIn
   return (
@@ -14,7 +13,7 @@ const Navbar = () => {
             <h2>MyApp</h2>
         </div>
         <div className='nav-option' >
-            <Link href="/" style={{padding: '20px', textDecoration: 'none', color: 'white'}}>Home</Link>
+            <Link href="/home" style={{padding: '20px', textDecoration: 'none', color: 'white'}}>Home</Link>
             <Link href="/about" style={{padding: '20px', textDecoration: 'none', color: 'white'}}>About</Link>
             <Link href="dashboard" style={{padding: '20px', textDecoration: 'none', color: 'white'}}>Dashboard</Link>
             {isLoggedIn ? <button>Logout</button>: <button>Login</button>}

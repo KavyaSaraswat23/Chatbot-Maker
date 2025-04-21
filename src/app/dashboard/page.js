@@ -1,6 +1,7 @@
 "use client"
 import { Authcontext } from "@/context/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
 const Dashboard = () => {
     
@@ -9,6 +10,7 @@ const Dashboard = () => {
     const [botName, setBotName] = useState("")
     const [botContext, setBotContext] = useState("")
     const [botStore, setBotStore] = useState([])
+    const router = useRouter()
     function botNameHandler(e) {
         setBotName(e.target.value)
     }
@@ -41,7 +43,9 @@ const Dashboard = () => {
                         <>
                             <h2>{bot[0]}</h2>
                             <p>{bot[1]}</p>
-                            <button>Open Chat</button>
+                            <button 
+                                onClick={() => {router.push(`/chatbot/${bot.name}`)}}
+                            >Visit</button>
                         </>
                     )
                 })}
